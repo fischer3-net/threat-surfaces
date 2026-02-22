@@ -1,0 +1,358 @@
+% ============================================================
+% latex-preamble.tex — Threat Surfaces: Multivariable Calculus for AI Security
+% fischer³ Education
+%
+% PURPOSE:
+%   Shared preamble included by all exercise and solution files.
+%   Defines packages, page layout, theorem environments, and
+%   course-specific notation macros.
+%
+% USAGE:
+%   In any exercise or solution .tex file, place the following
+%   at the top of the document before \begin{document}:
+%
+%     \input{../../assets/latex-preamble.tex}
+%
+%   Adjust the relative path as needed for the file's location
+%   within the repository.
+% ============================================================
+
+
+% ------------------------------------------------------------
+% PACKAGES
+% ------------------------------------------------------------
+
+% Page layout
+\usepackage[
+  margin=1.25in,
+  top=1.0in,
+  bottom=1.0in,
+  headheight=14pt
+]{geometry}
+
+% Typography & encoding
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}                % Improved justification
+\usepackage{lmodern}                  % Scalable CM fonts
+
+% Mathematics
+\usepackage{amsmath}                  % Core math environments
+\usepackage{amssymb}                  % Extended symbol set
+\usepackage{amsthm}                   % Theorem environments
+\usepackage{mathtools}                % Extensions to amsmath
+\usepackage{bm}                       % Bold math (\bm)
+\usepackage{cancel}                   % Strikethrough in math
+
+% Graphics & color
+\usepackage{graphicx}
+\usepackage{xcolor}
+
+% Course color palette
+\definecolor{ts-blue}{RGB}{30, 100, 180}      % Primary — headings, links
+\definecolor{ts-amber}{RGB}{200, 120, 20}     % Accent — warnings, highlights
+\definecolor{ts-green}{RGB}{30, 140, 80}      % Statistical bridges
+\definecolor{ts-gray}{RGB}{100, 100, 110}     % Secondary text
+\definecolor{ts-light}{RGB}{245, 247, 250}    % Background tints
+
+% Hyperlinks
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=ts-blue,
+  citecolor=ts-blue,
+  urlcolor=ts-blue,
+  pdfauthor={fischer\textsuperscript{3} Education},
+  pdfcreator={LaTeX}
+}
+
+% Headers & footers
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyhead[L]{\small\color{ts-gray}\textit{Threat Surfaces}}
+\fancyhead[R]{\small\color{ts-gray}\textit{\coursemodule}}   % Set \coursemodule in each file
+\fancyfoot[C]{\small\color{ts-gray}\thepage}
+
+% Tables
+\usepackage{booktabs}
+\usepackage{array}
+
+% Lists
+\usepackage{enumitem}
+\setlist[enumerate,1]{label=\textbf{\arabic*.}}
+\setlist[enumerate,2]{label=(\alph*)}
+
+% Boxes & frames
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable, skins, theorems}
+
+% Code listings (for Python lab cross-references)
+\usepackage{listings}
+\lstset{
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{ts-blue},
+  commentstyle=\color{ts-gray},
+  stringstyle=\color{ts-green},
+  numbers=left,
+  numberstyle=\tiny\color{ts-gray},
+  frame=single,
+  breaklines=true,
+  backgroundcolor=\color{ts-light}
+}
+
+
+% ------------------------------------------------------------
+% THEOREM ENVIRONMENTS
+% ------------------------------------------------------------
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{exercise}{Exercise}[section]
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+
+
+% ------------------------------------------------------------
+% TCOLORBOX ENVIRONMENTS
+% ------------------------------------------------------------
+
+% Problem statement box
+\newtcolorbox{problembox}[1][]{
+  enhanced,
+  breakable,
+  colback=ts-light,
+  colframe=ts-blue,
+  title={Problem},
+  fonttitle=\bfseries,
+  #1
+}
+
+% Statistical bridge box (green accent)
+\newtcolorbox{bridgebox}[1][]{
+  enhanced,
+  breakable,
+  colback=ts-light,
+  colframe=ts-green,
+  title={Statistical Bridge},
+  fonttitle=\bfseries\color{ts-green},
+  #1
+}
+
+% Warning / watch out box (amber accent)
+\newtcolorbox{warningbox}[1][]{
+  enhanced,
+  breakable,
+  colback=ts-light,
+  colframe=ts-amber,
+  title={Watch Out},
+  fonttitle=\bfseries\color{ts-amber},
+  #1
+}
+
+% Hint box (for exercise files — only appears in solution sets)
+\newtcolorbox{hintbox}[1][]{
+  enhanced,
+  breakable,
+  colback=ts-light,
+  colframe=ts-gray,
+  title={Hint},
+  fonttitle=\bfseries\color{ts-gray},
+  #1
+}
+
+
+% ------------------------------------------------------------
+% NOTATION MACROS
+% ------------------------------------------------------------
+
+% --- Number systems ---
+\newcommand{\R}{\mathbb{R}}             % Real numbers
+\newcommand{\N}{\mathbb{N}}             % Natural numbers
+\newcommand{\Z}{\mathbb{Z}}             % Integers
+\newcommand{\Q}{\mathbb{Q}}             % Rationals
+\newcommand{\C}{\mathbb{C}}             % Complex numbers
+
+% --- Vectors & matrices ---
+% Convention: bold lowercase for vectors, bold uppercase for matrices
+\newcommand{\va}{\bm{a}}
+\newcommand{\vb}{\bm{b}}
+\newcommand{\vc}{\bm{c}}
+\newcommand{\vd}{\bm{d}}
+\newcommand{\ve}{\bm{e}}
+\newcommand{\vf}{\bm{f}}
+\newcommand{\vg}{\bm{g}}
+\newcommand{\vh}{\bm{h}}
+\newcommand{\vi}{\bm{i}}               % Unit vector i
+\newcommand{\vj}{\bm{j}}               % Unit vector j
+\newcommand{\vk}{\bm{k}}               % Unit vector k
+\newcommand{\vn}{\bm{n}}               % Normal vector
+\newcommand{\vr}{\bm{r}}               % Position vector
+\newcommand{\vu}{\bm{u}}               % Unit direction vector
+\newcommand{\vv}{\bm{v}}
+\newcommand{\vw}{\bm{w}}
+\newcommand{\vx}{\bm{x}}               % Input vector
+\newcommand{\vy}{\bm{y}}               % Output / observation vector
+\newcommand{\vz}{\bm{z}}               % Latent vector
+\newcommand{\vzero}{\bm{0}}            % Zero vector
+
+% Statistical vectors
+\newcommand{\vmu}{\bm{\mu}}            % Mean vector
+\newcommand{\vbeta}{\bm{\beta}}        % Regression coefficients
+\newcommand{\vtheta}{\bm{\theta}}      % Parameter vector
+\newcommand{\veps}{\bm{\varepsilon}}   % Error vector
+
+% Matrices
+\newcommand{\mA}{\bm{A}}
+\newcommand{\mB}{\bm{B}}
+\newcommand{\mC}{\bm{C}}
+\newcommand{\mH}{\bm{H}}               % Hessian (also \Hess below)
+\newcommand{\mI}{\bm{I}}               % Identity matrix
+\newcommand{\mJ}{\bm{J}}               % Jacobian (also \Jac below)
+\newcommand{\mK}{\bm{K}}               % Kernel matrix
+\newcommand{\mL}{\bm{L}}               % Lower triangular / Cholesky
+\newcommand{\mQ}{\bm{Q}}               % Orthogonal matrix
+\newcommand{\mR}{\bm{R}}               % Upper triangular
+\newcommand{\mS}{\bm{S}}               % Sample covariance
+\newcommand{\mSigma}{\bm{\Sigma}}      % Covariance matrix
+\newcommand{\mX}{\bm{X}}               % Design matrix
+\newcommand{\mY}{\bm{Y}}
+
+% --- Calculus operators ---
+\newcommand{\grad}{\nabla}                              % Gradient ∇
+\newcommand{\Grad}[1]{\nabla #1}                        % Gradient of #1
+\newcommand{\GradP}[2]{\nabla_{#1} #2}                 % Gradient of #2 w.r.t. #1
+\newcommand{\Div}[1]{\nabla \cdot #1}                  % Divergence
+\newcommand{\Curl}[1]{\nabla \times #1}                % Curl
+\newcommand{\Lap}[1]{\nabla^2 #1}                      % Laplacian
+\newcommand{\Hess}[1]{\bm{H}_{#1}}                     % Hessian of #1
+\newcommand{\Jac}[1]{\bm{J}_{#1}}                      % Jacobian of #1
+
+% Partial derivative shorthand
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}           % ∂f/∂x
+\newcommand{\pdd}[2]{\frac{\partial^2 #1}{\partial #2^2}}      % ∂²f/∂x²
+\newcommand{\pdm}[3]{\frac{\partial^2 #1}{\partial #2\,\partial #3}}  % ∂²f/∂x∂y
+
+% Ordinary derivative shorthand
+\newcommand{\od}[2]{\frac{d #1}{d #2}}                         % df/dx
+\newcommand{\odd}[2]{\frac{d^2 #1}{d #2^2}}                    % d²f/dx²
+
+% Integrals
+\newcommand{\dx}{\,dx}
+\newcommand{\dy}{\,dy}
+\newcommand{\dz}{\,dz}
+\newcommand{\dt}{\,dt}
+\newcommand{\dA}{\,dA}
+\newcommand{\dV}{\,dV}
+\newcommand{\ds}{\,ds}
+\newcommand{\dvx}{\,d\vx}              % Vector integral element
+
+% --- Statistical notation ---
+\newcommand{\E}[1]{\mathbb{E}\!\left[#1\right]}          % Expectation
+\newcommand{\Var}[1]{\operatorname{Var}\!\left(#1\right)} % Variance
+\newcommand{\Cov}[2]{\operatorname{Cov}\!\left(#1,\,#2\right)} % Covariance
+\newcommand{\Cor}[2]{\operatorname{Cor}\!\left(#1,\,#2\right)} % Correlation
+
+\newcommand{\given}{\,\vert\,}                           % Conditional bar
+\newcommand{\iid}{\overset{\text{iid}}{\sim}}           % iid ~
+\newcommand{\ind}{\overset{\text{ind}}{\sim}}           % ind ~
+
+% Distributions
+\newcommand{\Normal}{\mathcal{N}}                        % Normal distribution
+\newcommand{\MVN}[2]{\mathcal{N}\!\left(#1,\,#2\right)} % Multivariate normal
+\newcommand{\Bern}{\operatorname{Bernoulli}}
+\newcommand{\Bin}{\operatorname{Binomial}}
+\newcommand{\Pois}{\operatorname{Poisson}}
+\newcommand{\Unif}{\operatorname{Uniform}}
+\newcommand{\Gam}{\operatorname{Gamma}}
+\newcommand{\Beta}{\operatorname{Beta}}
+
+% Likelihood & inference
+\newcommand{\Lik}{\mathcal{L}}                          % Likelihood
+\newcommand{\loglik}{\ell}                              % Log-likelihood
+\newcommand{\Score}[1]{s(#1)}                           % Score function
+\newcommand{\FI}{\mathcal{I}}                           % Fisher information
+\newcommand{\MLE}[1]{\hat{#1}_{\text{MLE}}}            % MLE estimator
+\newcommand{\MAP}[1]{\hat{#1}_{\text{MAP}}}            % MAP estimator
+\newcommand{\posterior}{p(\vtheta \given \vx)}          % Posterior shorthand
+\newcommand{\prior}{p(\vtheta)}                         % Prior shorthand
+\newcommand{\likelihood}{p(\vx \given \vtheta)}        % Likelihood shorthand
+\newcommand{\KL}[2]{D_{\text{KL}}\!\left(#1\,\|\,#2\right)} % KL divergence
+
+% --- Linear algebra ---
+\newcommand{\tr}[1]{\operatorname{tr}\!\left(#1\right)}        % Trace
+\newcommand{\rank}[1]{\operatorname{rank}\!\left(#1\right)}    % Rank
+\newcommand{\diag}[1]{\operatorname{diag}\!\left(#1\right)}    % Diagonal matrix
+\newcommand{\spn}[1]{\operatorname{span}\!\left\{#1\right\}}   % Span
+\newcommand{\norm}[1]{\left\|#1\right\|}                       % Norm
+\newcommand{\abs}[1]{\left|#1\right|}                          % Absolute value
+\newcommand{\inner}[2]{\langle #1,\, #2 \rangle}               % Inner product
+\newcommand{\T}{^{\top}}                                        % Transpose superscript
+
+% Positive (semi-)definiteness shorthand
+\newcommand{\psd}{\succeq 0}    % Positive semi-definite
+\newcommand{\pd}{\succ 0}       % Positive definite (Note: redefines \pd — see below)
+% Note: \pd is overloaded: partial derivative above, positive definite here.
+% In ambiguous contexts, use \succ 0 directly for positive definite.
+
+% --- Miscellaneous ---
+\newcommand{\defeq}{\coloneqq}                          % Definition equality :=
+\newcommand{\st}{\text{ s.t. }}                         % "such that"
+\newcommand{\approxeq}{\approx}                         % Approximate equality
+\newcommand{\BigO}[1]{\mathcal{O}\!\left(#1\right)}    % Big-O notation
+\newcommand{\sigmoid}[1]{\sigma\!\left(#1\right)}      % Sigmoid function
+\newcommand{\softmax}[1]{\operatorname{softmax}\!\left(#1\right)}
+
+
+% ------------------------------------------------------------
+% DOCUMENT METADATA COMMANDS
+% (Set these in each individual exercise file)
+% ------------------------------------------------------------
+%
+%   \newcommand{\coursemodule}{Module 02, Unit 03}
+%   \newcommand{\coursetitle}{The Multivariable Chain Rule}
+%   \newcommand{\coursedate}{February 2026}
+%
+% These are used in the header/footer and title block.
+% Define them BEFORE \input{...latex-preamble.tex} or immediately after.
+%
+% Default definitions (overridden per-file):
+\providecommand{\coursemodule}{[Module TBD]}
+\providecommand{\coursetitle}{[Unit Title TBD]}
+\providecommand{\coursedate}{\today}
+
+
+% ------------------------------------------------------------
+% TITLE BLOCK MACRO
+% ------------------------------------------------------------
+%
+% Usage in exercise files:
+%   \maketitleblock
+%
+\newcommand{\maketitleblock}{%
+  \begin{center}
+    {\LARGE\bfseries\color{ts-blue} Threat Surfaces}\\[4pt]
+    {\large Multivariable Calculus for AI Security}\\[2pt]
+    {\small\color{ts-gray} fischer\textsuperscript{3} Education}\\[12pt]
+    \rule{\linewidth}{0.4pt}\\[6pt]
+    {\large\bfseries \coursemodule: \coursetitle}\\[4pt]
+    {\small\color{ts-gray} Exercises \textbar\ \coursedate}\\[4pt]
+    \rule{\linewidth}{0.4pt}
+  \end{center}
+  \vspace{12pt}
+}
+
+
+% ============================================================
+% END OF PREAMBLE
+% ============================================================

@@ -1,0 +1,157 @@
+% ============================================================
+% exercises-template.tex
+% Threat Surfaces: Multivariable Calculus for AI Security
+% fischer³ Education
+%
+% INSTRUCTIONS FOR USE:
+%   1. Copy this file to:
+%        modules/module-NN-title/unit-NN-title/exercises.tex
+%   2. Set the three metadata commands below
+%   3. Replace all [bracketed placeholders] with actual content
+%   4. Compile with pdflatex or lualatex
+%   5. Corresponding solution file lives at:
+%        solutions/module-NN-title/unit-NN-title/solutions.tex
+% ============================================================
+
+% --- Metadata (set these first) ---
+\newcommand{\coursemodule}{Module XX, Unit YY}
+\newcommand{\coursetitle}{[Unit Title Here]}
+\newcommand{\coursedate}{[Month Year]}
+
+% --- Preamble ---
+\documentclass[11pt, letterpaper]{article}
+\input{../../assets/latex-preamble.tex}
+
+% ============================================================
+\begin{document}
+% ============================================================
+
+\maketitleblock
+
+% ------------------------------------------------------------
+% PREAMBLE NOTE TO STUDENT
+% ------------------------------------------------------------
+\begin{tcolorbox}[
+  colback=ts-light,
+  colframe=ts-gray,
+  title=Before You Begin,
+  fonttitle=\bfseries
+]
+Complete the notes for this sub-unit before working these exercises.
+Work all problems by hand before consulting the Python lab or solutions.
+The solutions file is at \texttt{solutions/module-NN-title/unit-NN-title/solutions.tex}.
+
+\medskip
+\textbf{Estimated time:} 20--30 minutes \quad
+\textbf{Problems:} [N] \quad
+\textbf{Difficulty:} \(\star\) Foundational \quad \(\star\star\) Applied \quad \(\star\star\star\) Extension
+\end{tcolorbox}
+
+\vspace{12pt}
+
+
+% ============================================================
+% PROBLEM 1 — Foundational / Computational
+% ============================================================
+\begin{problembox}[title={Problem 1 \hfill $\star$}]
+[State the problem completely. A student should be able to solve it with only the problem statement and their notes — no additional context required.]
+
+\medskip
+[If the problem has multiple parts, introduce them here, then use the enumerate environment below.]
+\end{problembox}
+
+\begin{enumerate}
+  \item [Part (a): A direct computation or definition check. Should be solvable in 3–5 minutes.]
+
+  \item [Part (b): A small extension of part (a). Same technique, slightly different setup.]
+
+  \item [(Optional) Part (c): A more open-ended question. "Interpret your result geometrically" or "What happens as $x \to \infty$?"]
+\end{enumerate}
+
+\vspace{24pt}
+
+
+% ============================================================
+% PROBLEM 2 — Applied / Interpretive
+% ============================================================
+\begin{problembox}[title={Problem 2 \hfill $\star\star$}]
+[This problem applies the concept in a slightly richer context. Consider giving a specific function, surface, or system and asking the student to analyze it fully — compute, interpret, and connect.]
+\end{problembox}
+
+\begin{enumerate}
+  \item [Part (a)]
+
+  \item [Part (b)]
+
+  \item [Part (c): Ask the student to interpret the result. "What does your answer tell you about the behavior of $f$ near $(x_0, y_0)$?"]
+\end{enumerate}
+
+\vspace{24pt}
+
+
+% ============================================================
+% PROBLEM 3 — Statistical Bridge Problem
+% ============================================================
+\begin{problembox}[title={Problem 3 \hfill $\star\star$ — Statistical Bridge}]
+[This problem makes the connection to the unit's statistical bridge explicit. The setup uses a recognizable statistical object — a likelihood function, a prior, a loss surface, etc. — and asks the student to apply the calculus to it.]
+
+\medskip
+\textit{Context:} [One or two sentences establishing the statistical scenario. E.g., "Suppose we observe $n$ iid samples $x_1, \ldots, x_n$ from a normal distribution with unknown mean $\mu$ and known variance $\sigma^2 = 1$. The log-likelihood is:"]
+
+$$
+\loglik(\mu) = [specific formula]
+$$
+\end{problembox}
+
+\begin{enumerate}
+  \item [Part (a): Apply today's technique to the statistical formula above.]
+
+  \item [Part (b): Interpret the result statistically. What does the gradient/Hessian/integral tell us about the parameter or the model?]
+
+  \item [(Optional) Part (c): Extension — what changes if we move from this simple case to a multivariate setting? No computation required — describe conceptually.]
+\end{enumerate}
+
+\vspace{24pt}
+
+
+% ============================================================
+% PROBLEM 4 — Extension / Challenge (Optional)
+% ============================================================
+\begin{problembox}[title={Problem 4 \hfill $\star\star\star$ — Extension (Optional)}]
+[This problem is harder and is not required. It may involve a proof, a derivation, or a more complex application. Students who finish the first three problems quickly should attempt this.]
+\end{problembox}
+
+\begin{enumerate}
+  \item [Part (a)]
+
+  \item [Part (b)]
+\end{enumerate}
+
+\vspace{24pt}
+
+
+% ============================================================
+% REFLECTION
+% ============================================================
+\begin{tcolorbox}[
+  colback=ts-light,
+  colframe=ts-green,
+  title=Reflection,
+  fonttitle=\bfseries\color{ts-green}
+]
+Before moving to the Python lab, take two minutes to answer these in your notes:
+
+\begin{enumerate}
+  \item Which step in your solutions was the least mechanical — where did you have to think rather than just compute?
+  \item [Unit-specific reflection question. E.g., "How would you explain the geometric meaning of today's concept to someone who has never seen multivariable calculus?"]
+  \item What question do you still have that the exercises didn't resolve?
+\end{enumerate}
+
+\medskip
+\textbf{Next:} Python Lab (\texttt{python-lab.ipynb}) $\to$ Solutions (\texttt{solutions/...})
+\end{tcolorbox}
+
+
+% ============================================================
+\end{document}
+% ============================================================
