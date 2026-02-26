@@ -1,0 +1,216 @@
+% ============================================================
+% Module 00, Unit 01 — Vectors & Vector Spaces
+% Exercises
+% Threat Surfaces: Multivariable Calculus for AI Security
+% fischer³ Education
+% ============================================================
+
+\newcommand{\coursemodule}{Module 00, Unit 01}
+\newcommand{\coursetitle}{Vectors \& Vector Spaces}
+\newcommand{\coursedate}{February 2026}
+
+\documentclass[11pt, letterpaper]{article}
+\input{../../../assets/latex-preamble.tex}
+
+% ============================================================
+\begin{document}
+% ============================================================
+
+\maketitleblock
+
+% ------------------------------------------------------------
+\begin{tcolorbox}[
+  colback=ts-light,
+  colframe=ts-gray,
+  title=Before You Begin,
+  fonttitle=\bfseries
+]
+Complete \texttt{notes.md} for this unit before working these exercises.
+Work all problems by hand. Use the Python lab (\texttt{python-lab.ipynb}) 
+to verify your answers computationally \emph{after} you have committed to 
+a hand solution.
+
+\medskip
+\textbf{Estimated time:} 20--30 minutes \quad
+\textbf{Problems:} 4 \quad
+\textbf{Difficulty:}
+$\star$ Foundational \enspace
+$\star\star$ Applied \enspace
+$\star\star\star$ Extension
+\end{tcolorbox}
+
+\vspace{16pt}
+
+
+% ============================================================
+% PROBLEM 1 — Vector Arithmetic
+% ============================================================
+\begin{problembox}[title={Problem 1 \hfill $\star$}]
+Let $\va = (2,\, -3,\, 1)\T$ and $\vb = (-1,\, 4,\, 2)\T$ in $\R^3$.
+\end{problembox}
+
+\begin{enumerate}
+  \item Compute each of the following. Show your work componentwise.
+    \begin{enumerate}
+      \item $\va + \vb$
+      \item $3\va - 2\vb$
+      \item $\frac{1}{2}\va + \frac{3}{2}\vb$
+    \end{enumerate}
+
+  \item Compute the Euclidean norm $\norm{\va}$ and $\norm{\vb}$. Leave your answers in exact form (no decimal approximations).
+
+  \item Normalize $\va$ to produce the unit vector $\hat{\va}$. Verify that $\norm{\hat{\va}} = 1$ by direct computation.
+
+  \item Without computing, determine whether $\norm{\va + \vb} \leq \norm{\va} + \norm{\vb}$. 
+  State the name of the inequality you are applying. Then verify by computing both sides.
+\end{enumerate}
+
+\vspace{20pt}
+
+
+% ============================================================
+% PROBLEM 2 — Linear Combinations & Span
+% ============================================================
+\begin{problembox}[title={Problem 2 \hfill $\star$}]
+Let $\ve_1, \ve_2, \ve_3$ denote the standard basis vectors in $\R^3$.
+\end{problembox}
+
+\begin{enumerate}
+  \item Express the vector $\vc = (5,\, 0,\, -7)\T$ as a linear combination of the standard basis vectors. Write out the full expression.
+
+  \item Let $\vv_1 = (1,\, 1)\T$ and $\vv_2 = (1,\, -1)\T$ in $\R^2$. 
+  Find scalars $c_1, c_2$ such that:
+  $$
+  \vu = \begin{pmatrix} 4 \\ 2 \end{pmatrix} = c_1 \vv_1 + c_2 \vv_2
+  $$
+  \emph{Hint}: Set up a $2 \times 2$ linear system and solve.
+
+  \item Using the scalars found in part (b), verify your answer by computing 
+  $c_1 \vv_1 + c_2 \vv_2$ directly and confirming it equals $\vu$.
+
+  \item The vectors $\vv_1$ and $\vv_2$ from part (b) form a basis for $\R^2$.
+  In one or two sentences, explain geometrically why any vector $\vu \in \R^2$ 
+  can be expressed as a linear combination of these two vectors.
+\end{enumerate}
+
+\vspace{20pt}
+
+
+% ============================================================
+% PROBLEM 3 — Statistical Bridge
+% ============================================================
+\begin{problembox}[title={Problem 3 \hfill $\star\star$ — Statistical Bridge}]
+In Ridge regression (also called $\ell_2$-regularized linear regression), 
+we fit a model by minimizing the following penalized objective:
+
+$$
+J(\vbeta) = \norm{\vy - \mX\vbeta}^2 + \lambda\norm{\vbeta}^2
+$$
+
+where:
+\begin{itemize}
+  \item $\vy \in \R^n$ is the vector of observed responses
+  \item $\mX \in \R^{n \times p}$ is the design matrix (each row is one observation)
+  \item $\vbeta \in \R^p$ is the parameter vector we are estimating
+  \item $\lambda \geq 0$ is the regularization strength
+\end{itemize}
+
+For this problem, work in a simplified setting with $p = 2$ parameters:
+$\vbeta = (\beta_1,\, \beta_2)\T$.
+\end{problembox}
+
+\begin{enumerate}
+  \item Write out $\norm{\vbeta}^2$ explicitly in terms of $\beta_1$ and $\beta_2$.
+  This is the \textbf{regularization penalty}.
+
+  \item Suppose the current parameter estimate is $\vbeta = (3,\, -4)\T$. Compute:
+    \begin{enumerate}
+      \item The regularization penalty $\norm{\vbeta}^2$
+      \item The Euclidean norm $\norm{\vbeta}$
+      \item The unit vector $\hat{\vbeta}$ pointing in the same direction as $\vbeta$
+    \end{enumerate}
+
+  \item Now suppose $\lambda = 2$. The scalar $\lambda$ controls how strongly 
+  we penalize large values of $\norm{\vbeta}$. In one or two sentences, 
+  describe geometrically what happens to the set of 
+  ``acceptable'' $\vbeta$ vectors as $\lambda \to \infty$.
+
+  \item Consider two competing parameter estimates:
+  $$
+  \vbeta^{(1)} = \begin{pmatrix}5\\0\end{pmatrix}, \qquad \vbeta^{(2)} = \begin{pmatrix}3\\4\end{pmatrix}
+  $$
+  Both have the same $\ell_2$ norm. Verify this. What does this tell you about 
+  the regularization penalty — does it distinguish between these two estimates?
+\end{enumerate}
+
+\vspace{20pt}
+
+
+% ============================================================
+% PROBLEM 4 — Extension
+% ============================================================
+\begin{problembox}[title={Problem 4 \hfill $\star\star\star$ — Extension (Optional)}]
+This problem explores why the choice of norm matters in regularization, 
+and gives you a preview of geometry in higher dimensions.
+\end{problembox}
+
+\begin{enumerate}
+  \item In $\R^2$, the \textbf{unit ball} for a norm $\norm{\cdot}$ is the set of all 
+  vectors with norm at most 1:
+  $$
+  B = \left\{ \vx \in \R^2 \;\middle|\; \norm{\vx} \leq 1 \right\}
+  $$
+  Describe the shape of $B$ for:
+    \begin{enumerate}
+      \item The $\ell_2$ norm: $\norm{\vx}_2 = \sqrt{x_1^2 + x_2^2}$
+      \item The $\ell_1$ norm: $\norm{\vx}_1 = |x_1| + |x_2|$
+      \item The $\ell_\infty$ norm: $\norm{\vx}_\infty = \max(|x_1|, |x_2|)$
+    \end{enumerate}
+  For each, describe the shape in words (e.g., ``a disk'', ``a square'') and 
+  identify the four points where the boundary intersects the coordinate axes.
+
+  \item Lasso regularization uses the $\ell_1$ penalty $\norm{\vbeta}_1$ rather 
+  than the $\ell_2$ penalty $\norm{\vbeta}_2^2$. The shape of the $\ell_1$ unit 
+  ball (from part a) explains geometrically why Lasso tends to produce 
+  \textbf{sparse} solutions (many components of $\vbeta$ exactly zero) 
+  while Ridge does not. In two or three sentences, explain this geometric 
+  intuition using your answers from part (a).
+  
+  \emph{Note}: You do not need to prove this formally. A geometric argument 
+  using the shapes of the unit balls is sufficient.
+\end{enumerate}
+
+\vspace{20pt}
+
+
+% ============================================================
+% REFLECTION
+% ============================================================
+\begin{tcolorbox}[
+  colback=ts-light,
+  colframe=ts-green,
+  title=Reflection,
+  fonttitle=\bfseries\color{ts-green}
+]
+Before moving to the Python lab, take two minutes to answer these in your notes:
+
+\begin{enumerate}
+  \item Where in your solutions did you rely on geometric intuition rather than 
+  pure computation? Was that intuition correct?
+
+  \item The statistical bridge problem introduced vectors in the context of 
+  Ridge regression. Can you identify two other places in machine learning or 
+  statistics where a vector norm appears, even implicitly?
+
+  \item What question do you still have that these exercises did not resolve?
+\end{enumerate}
+
+\medskip
+\textbf{Next:} Python Lab (\texttt{python-lab.ipynb}) $\;\to\;$ 
+Solutions (\texttt{threat-surfaces-solutions} repository)
+\end{tcolorbox}
+
+
+% ============================================================
+\end{document}
+% ============================================================
