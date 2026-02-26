@@ -1,0 +1,83 @@
+# ---------------------------------------------------------------------------
+# THREAT SURFACES — Git Commit Message Template
+# fischer³ Education
+#
+# SETUP (run once per repository clone):
+#   git config commit.template .gitmessage
+#
+# This template will open automatically when you run `git commit`
+# without the -m flag. Fill in the sections below, then save and close.
+# Lines beginning with # are ignored by Git.
+# ---------------------------------------------------------------------------
+
+
+# [TYPE](SCOPE): Short description — imperative mood, max 72 chars
+# Example: feat(m01-u02): add level curves unit — notes, exercises, python lab
+
+
+# ---------------------------------------------------------------------------
+# WHY (optional — explain motivation, not mechanics; leave blank if obvious)
+# ---------------------------------------------------------------------------
+
+
+
+# ---------------------------------------------------------------------------
+# REFERENCES (optional — issue numbers, related commits, cross-repo notes)
+# ---------------------------------------------------------------------------
+
+
+
+# ---------------------------------------------------------------------------
+# CHECKLIST — delete this section before committing, or leave as a reminder
+# ---------------------------------------------------------------------------
+# Content commits:
+#   [ ] No [bracketed placeholder text] remaining in student-facing files
+#   [ ] Learning objectives in notes match exercise and Python lab scope
+#   [ ] Statistical bridge section present (notes + exercises)
+#   [ ] LaTeX compiles without errors
+#   [ ] Jupyter notebook runs clean (restart kernel + run all)
+#   [ ] Refresher links in notes point to existing refresher folders
+#   [ ] REFRESHER_INDEX.md updated if a new refresher was added
+#   [ ] COURSE_GUIDE.md updated if module structure changed
+#
+# Preamble / infra commits:
+#   [ ] latex-preamble.tex synced to threat-surfaces-solutions/assets/
+#   [ ] Existing exercise and solution files tested with updated preamble
+#
+# Solutions commits (threat-surfaces-solutions repo only):
+#   [ ] Grading notes present for each sub-problem
+#   [ ] Solutions branch only — never merged to develop or main
+# ---------------------------------------------------------------------------
+
+
+# ===========================================================================
+# QUICK REFERENCE
+# ===========================================================================
+#
+# TYPES
+#   feat      New content: unit, refresher, exercise, notebook
+#   fix       Correction: typo, wrong math, broken LaTeX or notebook
+#   refactor  Restructure without content change: rename, reorder
+#   infra     Tooling: GitHub Actions, templates, preamble, Moodle files
+#   docs      Repo documentation: README, COURSE_GUIDE, BRANCHING_STRATEGY
+#   wip       Work in progress: partial content, not ready for review
+#
+# SCOPES
+#   m00               Module 00 (orientation)
+#   m01 … m08         Modules 01–08
+#   m02-u03           Specific module + unit
+#   refresher         Any refresher module
+#   solutions         Solutions repo content
+#   template          Template file changes
+#   preamble          LaTeX preamble changes
+#   repo              Repository-wide changes
+#
+# EXAMPLES
+#   feat(m01-u02): add level curves unit — notes, exercises, python lab
+#   fix(m02-u03): correct chain rule application in worked example
+#   feat(refresher): add basic-probability refresher with python lab
+#   infra(preamble): add \posterior and \prior shorthand macros
+#   docs(repo): update branching strategy — add preamble sync reminder
+#   wip(m04-u02): hessian unit notes draft — exercises not yet started
+#   fix(m03-u01): fix broken \Hess macro reference in exercise problem 3
+# ===========================================================================

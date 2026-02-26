@@ -1,0 +1,207 @@
+% ============================================================
+% Module 00, Unit 02 — Dot Products & Cross Products
+% Exercises
+% Threat Surfaces: Multivariable Calculus for AI Security
+% fischer³ Education
+% ============================================================
+
+\newcommand{\coursemodule}{Module 00, Unit 02}
+\newcommand{\coursetitle}{Dot Products \& Cross Products}
+\newcommand{\coursedate}{February 2026}
+
+\documentclass[11pt, letterpaper]{article}
+\input{../../../assets/latex-preamble.tex}
+
+% ============================================================
+\begin{document}
+% ============================================================
+
+\maketitleblock
+
+\begin{tcolorbox}[
+  colback=ts-light,
+  colframe=ts-gray,
+  title=Before You Begin,
+  fonttitle=\bfseries
+]
+Complete \texttt{notes.md} for this unit before working these exercises.
+If trigonometry feels rusty, visit the refresher before starting Problem~2:
+\texttt{refreshers/trig-essentials/notes.md}.
+
+\medskip
+\textbf{Estimated time:} 25--35 minutes \quad
+\textbf{Problems:} 4 \quad
+\textbf{Difficulty:}
+$\star$ Foundational \enspace
+$\star\star$ Applied \enspace
+$\star\star\star$ Extension
+\end{tcolorbox}
+
+\vspace{16pt}
+
+
+% ============================================================
+% PROBLEM 1 — Dot Product: Algebra & Orthogonality
+% ============================================================
+\begin{problembox}[title={Problem 1 \hfill $\star$}]
+Let $\vu = (3,\, -2,\, 1)\T$, $\vv = (1,\, 4,\, 2)\T$, and $\vw = (2,\, 3,\, -8)\T$,
+all in $\R^3$.
+\end{problembox}
+
+\begin{enumerate}
+  \item Compute each dot product. Show your work.
+    \begin{enumerate}
+      \item $\vu \cdot \vv$
+      \item $\vu \cdot \vw$
+      \item $\vv \cdot \vw$
+    \end{enumerate}
+
+  \item Based on your answers to part (a), identify any pair of orthogonal
+  vectors. State the orthogonality condition you are applying.
+
+  \item Verify that $\norm{\vu}^2 = \vu \cdot \vu$ by computing both sides
+  independently and confirming they are equal.
+
+  \item Is it possible for $\vx \cdot \vy > 0$ and $\vx \cdot \vz > 0$
+  but $\vy \cdot \vz < 0$? Either provide an example in $\R^2$,
+  or prove it is impossible.
+\end{enumerate}
+
+\vspace{20pt}
+
+
+% ============================================================
+% PROBLEM 2 — Angles & Projections
+% ============================================================
+\begin{problembox}[title={Problem 2 \hfill $\star\star$}]
+Let $\vp = (4,\, 1)\T$ and $\vq = (1,\, 3)\T$ in $\R^2$.
+\end{problembox}
+
+\begin{enumerate}
+  \item Find the angle $\theta$ between $\vp$ and $\vq$.
+  Express your answer both as an exact expression involving $\arccos$
+  and as a decimal approximation in degrees.
+
+  \item Compute the \textbf{vector projection} of $\vp$ onto $\vq$.
+  Label your answer $\text{proj}_{\vq}\,\vp$.
+
+  \item Compute the \textbf{orthogonal component} $\vp_\perp = \vp - \text{proj}_{\vq}\,\vp$.
+
+  \item Verify that $\vp_\perp \perp \vq$ by computing their dot product.
+
+  \item Verify the Pythagorean identity:
+  $$
+  \norm{\vp}^2 = \norm{\text{proj}_{\vq}\,\vp}^2 + \norm{\vp_\perp}^2
+  $$
+  \emph{This identity always holds when a vector is decomposed into projection
+  and orthogonal components. What theorem does it generalize?}
+\end{enumerate}
+
+\vspace{20pt}
+
+
+% ============================================================
+% PROBLEM 3 — Statistical Bridge: OLS Geometry
+% ============================================================
+\begin{problembox}[title={Problem 3 \hfill $\star\star$ — Statistical Bridge}]
+In ordinary least squares regression with a single predictor,
+we have response values $\vy = (2,\, 4,\, 5,\, 3)\T \in \R^4$
+and predictor values $\vx = (1,\, 2,\, 3,\, 2)\T \in \R^4$.
+
+The OLS fitted values (the projection of $\vy$ onto the span of $\vx$) are:
+$$
+\hat{\vy} = \text{proj}_{\vx}\,\vy = \frac{\vy \cdot \vx}{\vx \cdot \vx}\,\vx
+$$
+
+\emph{Note:} This is the vector projection formula from Unit 02 applied
+directly in $\R^4$ — one observation per component.
+\end{problembox}
+
+\begin{enumerate}
+  \item Compute $\vy \cdot \vx$ and $\vx \cdot \vx$. Then compute the
+  scalar coefficient $\hat{\beta} = \dfrac{\vy \cdot \vx}{\vx \cdot \vx}$.
+
+  \item Compute the fitted value vector $\hat{\vy} = \hat{\beta}\,\vx$.
+
+  \item Compute the residual vector $\ve = \vy - \hat{\vy}$.
+
+  \item Verify the orthogonality condition: confirm that $\ve \cdot \vx = 0$.
+  In one sentence, explain what this means geometrically.
+
+  \item Verify the Pythagorean decomposition:
+  $$
+  \norm{\vy}^2 = \norm{\hat{\vy}}^2 + \norm{\ve}^2
+  $$
+  In the context of regression, $\norm{\hat{\vy}}^2$ is related to
+  the \emph{explained} variation and $\norm{\ve}^2$ is the
+  \emph{unexplained} variation (residual sum of squares).
+  Does this decomposition remind you of anything from basic statistics?
+\end{enumerate}
+
+\vspace{20pt}
+
+
+% ============================================================
+% PROBLEM 4 — Cross Product & Extension
+% ============================================================
+\begin{problembox}[title={Problem 4 \hfill $\star\star\star$ — Extension}]
+Let $\va = (2,\, 1,\, -1)\T$ and $\vb = (-1,\, 3,\, 2)\T$ in $\R^3$.
+\end{problembox}
+
+\begin{enumerate}
+  \item Compute $\va \times \vb$ using the determinant formula.
+
+  \item Verify that $\va \times \vb$ is orthogonal to both $\va$ and $\vb$
+  by computing the relevant dot products.
+
+  \item Compute $\norm{\va \times \vb}$ and the area of the parallelogram
+  spanned by $\va$ and $\vb$.
+
+  \item Compute $\va \times \va$. State the general rule this illustrates
+  and explain it geometrically.
+
+  \item \textbf{Challenge.} Use the relationship
+  $\norm{\vx \times \vy}^2 + (\vx \cdot \vy)^2 = \norm{\vx}^2\norm{\vy}^2$
+  to verify your answer from part (c) without computing the cross product
+  components explicitly.
+  \emph{Hint:} You already computed $\norm{\va}$, $\norm{\vb}$, and
+  $\va \cdot \vb$ in the process of solving the earlier parts.
+  What trigonometric identity does this formula encode?
+\end{enumerate}
+
+\vspace{20pt}
+
+
+% ============================================================
+% REFLECTION
+% ============================================================
+\begin{tcolorbox}[
+  colback=ts-light,
+  colframe=ts-green,
+  title=Reflection,
+  fonttitle=\bfseries\color{ts-green}
+]
+Before moving to the Python lab, take two minutes to answer these in your notes:
+
+\begin{enumerate}
+  \item The statistical bridge showed that OLS residuals are orthogonal
+  to the predictor. In your own words, what does this mean geometrically?
+  Draw a sketch if it helps.
+
+  \item Problem 2 had you decompose $\vp$ into a component along $\vq$
+  and a component perpendicular to $\vq$. Where exactly does this
+  decomposition appear in the OLS formula from Problem 3?
+
+  \item What is one question this unit raised that you want to
+  carry forward into Module 06 (the MVN and regression capstone)?
+\end{enumerate}
+
+\medskip
+\textbf{Next:} Python Lab (\texttt{python-lab.ipynb}) $\;\to\;$
+Solutions (\texttt{threat-surfaces-solutions} repository)
+\end{tcolorbox}
+
+
+% ============================================================
+\end{document}
+% ============================================================
