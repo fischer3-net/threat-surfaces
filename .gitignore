@@ -1,0 +1,208 @@
+# ==============================================================================
+# .gitignore — Threat Surfaces | fischer³ Education
+#
+# Covers: LaTeX build artifacts, Jupyter/Python, Zensical site build,
+#         macOS/Windows/Linux system files, and editor noise.
+# ==============================================================================
+
+
+# ------------------------------------------------------------------------------
+# LaTeX — build artifacts (keep .tex source and compiled .pdf; ignore the rest)
+# ------------------------------------------------------------------------------
+
+# Core auxiliary files
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.synctex(busy)
+*.blg
+*.bbl
+*.bcf
+*.run.xml
+
+# latexmk working files
+*.xdv
+*.dvi
+
+# beamer/presentation auxiliary
+*.nav
+*.snm
+*.vrb
+
+# makeindex / glossaries
+*.idx
+*.ilg
+*.ind
+*.glo
+*.gls
+*.glg
+*.acn
+*.acr
+*.alg
+
+# Temporary / partial output
+*.pdf.bak
+
+
+# ------------------------------------------------------------------------------
+# Python
+# ------------------------------------------------------------------------------
+
+# Byte-compiled / optimised
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+
+# Virtual environments
+.venv/
+venv/
+env/
+.env/
+
+# pip / packaging
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+
+# pytest / coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+*.coveragerc
+
+# mypy / type checking
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+
+# ------------------------------------------------------------------------------
+# Jupyter Notebooks
+# ------------------------------------------------------------------------------
+
+# Checkpoint files created by Jupyter when saving
+.ipynb_checkpoints/
+
+# Temporary nbconvert output (if you ever export notebooks)
+*.nbconvert.ipynb
+
+
+# ------------------------------------------------------------------------------
+# Zensical / MkDocs — site build output
+# ------------------------------------------------------------------------------
+
+# The generated static site — never committed; GitHub Actions rebuilds it
+site/
+
+# Zensical cache (if introduced in future versions)
+.zensical_cache/
+.cache/
+
+
+# ------------------------------------------------------------------------------
+# macOS
+# ------------------------------------------------------------------------------
+
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+.AppleDouble
+.LSOverride
+Icon
+
+# Thumbnails
+Thumbs.db
+ehthumbs.db
+
+
+# ------------------------------------------------------------------------------
+# Windows
+# ------------------------------------------------------------------------------
+
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+
+# ------------------------------------------------------------------------------
+# Linux
+# ------------------------------------------------------------------------------
+
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+
+# ------------------------------------------------------------------------------
+# Editors & IDEs
+# ------------------------------------------------------------------------------
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# JetBrains (PyCharm, IntelliJ, etc.)
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Vim / Neovim
+*.swp
+*.swo
+*~
+Session.vim
+.netrwhist
+
+# Emacs
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Overleaf sync (if used locally)
+.overleaf/
+
+
+# ------------------------------------------------------------------------------
+# Moodle — exported packages are committed; working/temp files are not
+# ------------------------------------------------------------------------------
+
+# Temporary Moodle backup working directories
+moodle/tmp/
+moodle/**/*.mbz.tmp
+
+
+# ------------------------------------------------------------------------------
+# Secrets & local config — never committed
+# ------------------------------------------------------------------------------
+
+.env
+.env.local
+.env.*.local
+secrets/
+*.pem
+*.key

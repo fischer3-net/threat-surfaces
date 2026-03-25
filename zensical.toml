@@ -1,0 +1,23 @@
+[project]
+site_name = "Threat Surfaces"
+site_url = "https://your-org.github.io/threat-surfaces/"
+site_description = "Multivariable Calculus for AI Security — fischer³ Education"
+docs_dir = "docs"
+
+# Math rendering (MathJax via arithmatex)
+extra_javascript = [
+  "javascripts/mathjax.js",
+  "https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"
+]
+
+[project.markdown_extensions.pymdownx.arithmatex]
+generic = true
+
+[project.markdown_extensions.toc]
+permalink = true
+
+[project.markdown_extensions.admonition]
+[project.markdown_extensions.pymdownx.details]
+[project.markdown_extensions.pymdownx.superfences]
+[project.markdown_extensions.pymdownx.tabbed]
+[project.markdown_extensions.attr_list]
