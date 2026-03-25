@@ -1,6 +1,6 @@
 [project]
 site_name = "Threat Surfaces"
-site_url = "https://your-org.github.io/threat-surfaces/"
+site_url = "https://fischer3-net.github.io/threat-surfaces/"
 site_description = "Multivariable Calculus for AI Security — fischer³ Education"
 docs_dir = "docs"
 

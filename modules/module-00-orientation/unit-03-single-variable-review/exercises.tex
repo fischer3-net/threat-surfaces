@@ -1,0 +1,201 @@
+% ============================================================
+% Module 00, Unit 03 — Single-Variable Review & Notation Setup
+% Exercises
+% Threat Surfaces: Multivariable Calculus for AI Security
+% fischer³ Education
+% ============================================================
+
+\newcommand{\coursemodule}{Module 00, Unit 03}
+\newcommand{\coursetitle}{Single-Variable Review \& Notation Setup}
+\newcommand{\coursedate}{February 2026}
+
+\documentclass[11pt, letterpaper]{article}
+\input{../../../assets/latex-preamble.tex}
+
+% ============================================================
+\begin{document}
+% ============================================================
+
+\maketitleblock
+
+% ------------------------------------------------------------
+\begin{tcolorbox}[
+  colback=ts-light,
+  colframe=ts-gray,
+  title=Before You Begin,
+  fonttitle=\bfseries
+]
+Complete \texttt{notes.md} for this unit before working these exercises.
+If the chain rule or logarithm rules feel shaky, visit the refreshers first:
+\texttt{refreshers/single-variable-chain-rule/} and
+\texttt{refreshers/exponential-and-log-rules/}.
+
+\medskip
+\textbf{Estimated time:} 20--30 minutes \quad
+\textbf{Problems:} 4 \quad
+\textbf{Difficulty:}
+$\star$ Foundational \enspace
+$\star\star$ Applied \enspace
+$\star\star\star$ Extension
+\end{tcolorbox}
+
+\vspace{16pt}
+
+
+% ============================================================
+% PROBLEM 1 — Differentiation
+% ============================================================
+\begin{problembox}[title={Problem 1 \hfill $\star$}]
+Differentiate each function with respect to $x$. Show all intermediate steps,
+clearly identifying which rule (chain rule, product rule, or both) you are
+applying at each stage.
+\end{problembox}
+
+\begin{enumerate}
+  \item $f(x) = e^{-3x^2 + 2x}$
+
+  \item $g(x) = x^3 \ln(x^2 + 1)$
+
+  \item $h(x) = \ln\!\Bigl(\dfrac{e^x}{1 + e^x}\Bigr)$
+  \quad \textit{Hint: simplify using logarithm rules before differentiating.}
+
+  \item $k(x) = \sqrt{2\pi\sigma^2}\,\exp\!\left(-\dfrac{(x - \mu)^2}{2\sigma^2}\right)$
+  \quad \textit{Treat $\mu$ and $\sigma^2$ as constants; differentiate with respect to $x$.}
+\end{enumerate}
+
+\vspace{20pt}
+
+\begin{warningbox}
+Part (d) is the Gaussian density. The derivative you just computed is the
+density times a linear function of $x$. This structure — density times score
+— reappears in Module 02 when we differentiate the log-likelihood with respect
+to a \emph{parameter}.
+\end{warningbox}
+
+\vspace{24pt}
+
+
+% ============================================================
+% PROBLEM 2 — Integration
+% ============================================================
+\begin{problembox}[title={Problem 2 \hfill $\star$}]
+Evaluate each integral. Identify the technique you are using (direct
+antiderivative, substitution, or integration by parts) before proceeding.
+\end{problembox}
+
+\begin{enumerate}
+  \item $\displaystyle\int_0^1 x\, e^{-x^2/2}\, dx$
+  \quad \textit{Use substitution.}
+
+  \item $\displaystyle\int x \ln x\, dx$
+  \quad \textit{Use integration by parts.}
+
+  \item $\displaystyle\int_{-\infty}^{\infty} e^{-x^2/2}\, dx$
+  \quad \textit{State the result; do not derive it. Explain why this integral
+  is relevant to the Gaussian PDF.}
+
+  \item $\displaystyle\int_0^{\infty} x\, e^{-x}\, dx$
+  \quad \textit{Use integration by parts. Evaluate carefully at the boundaries.}
+\end{enumerate}
+
+\vspace{24pt}
+
+
+% ============================================================
+% PROBLEM 3 — Statistical Bridge: The Log-Likelihood
+% ============================================================
+\begin{problembox}[title={Problem 3 \hfill $\star\star$}]
+Suppose we observe $n$ independent draws $x_1, x_2, \ldots, x_n$ from a
+$\Normal(\mu, \sigma^2)$ distribution with \emph{known} variance $\sigma^2 = 1$.
+The log-likelihood for the parameter $\mu$ is:
+
+$$\loglik(\mu) = -\frac{n}{2}\ln(2\pi) - \frac{1}{2}\sum_{i=1}^n (x_i - \mu)^2$$
+\end{problembox}
+
+\begin{enumerate}
+  \item Differentiate $\loglik(\mu)$ with respect to $\mu$.
+  Show each step; treat $x_1, \ldots, x_n$ as constants.
+
+  \item Set your derivative equal to zero and solve for $\hat{\mu}$.
+  Express your answer in closed form.
+
+  \item What is the name of the estimator you just derived?
+  Does your answer depend on $\sigma^2$? Should it?
+
+  \item Compute the second derivative $\dfrac{d^2\,\loglik}{d\mu^2}$.
+  What does the sign tell you about whether $\hat{\mu}$ is a maximum or
+  a minimum of $\loglik(\mu)$?
+\end{enumerate}
+
+\vspace{16pt}
+
+\begin{bridgebox}
+This is maximum likelihood estimation in its simplest form. In Module 02 you
+will generalise exactly this calculation to $\vtheta \in \R^p$, replacing
+the derivative with the gradient and the second derivative with the Hessian.
+The structure — differentiate, set to zero, check the second-order condition
+— is identical.
+\end{bridgebox}
+
+\vspace{24pt}
+
+
+% ============================================================
+% PROBLEM 4 — Notation Transcription (Extension)
+% ============================================================
+\begin{problembox}[title={Problem 4 \hfill $\star\star\star$ — Extension (Optional)}]
+This problem requires no calculus. Its purpose is to build fluency with the
+notation conventions established in Section~4 of the notes. Read
+\texttt{assets/latex-preamble.tex} and the notation table in the notes, then
+rewrite each expression in full English and identify the macro used to
+typeset it.
+\end{problembox}
+
+\begin{enumerate}
+  \item $\posterior$ \quad (identify what each term represents)
+
+  \item $\MLE{\theta}$ \quad (what does the hat and subscript denote?)
+
+  \item $\MVN{\vmu}{\mSigma}$ \quad (what are the two arguments, and what type
+  of object is each?)
+
+  \item Write the log-likelihood for a single observation $x$ from a
+  $\Normal(\mu, \sigma^2)$ distribution using \emph{only} macros from the
+  preamble (no raw \texttt{\textbackslash frac}, \texttt{\textbackslash exp},
+  or \texttt{\textbackslash sigma} that are not wrapped in a course macro).
+  Compare your expression with what appears in Problem~3.
+\end{enumerate}
+
+\vspace{24pt}
+
+
+% ============================================================
+% REFLECTION
+% ============================================================
+\begin{tcolorbox}[
+  colback=ts-light,
+  colframe=ts-green,
+  title=Reflection,
+  fonttitle=\bfseries\color{ts-green}
+]
+Before moving to the Python lab, take two minutes to answer these in your notes:
+
+\begin{enumerate}
+  \item Which differentiation rule required the most deliberate attention today?
+  Describe the specific moment where you had to slow down.
+  \item In Problem~3, you derived an estimator using only first-year calculus.
+  What additional machinery would you need to do the same calculation for
+  $\vtheta = (\mu_1, \mu_2, \ldots, \mu_p)\T$?
+  \item Is there any macro in Section~4 of the notes whose meaning is still
+  unclear? Write it down now so it surfaces during the Python lab.
+\end{enumerate}
+
+\medskip
+\textbf{Next:} Python Lab (\texttt{python-lab.ipynb})
+$\to$ Solutions (\texttt{solutions/module-00-orientation/unit-03-single-variable-review/})
+\end{tcolorbox}
+
+
+% ============================================================
+\end{document}
+% ============================================================
